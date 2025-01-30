@@ -20,7 +20,7 @@ ListOfServices({required this.stringList});
 
 ## Additional information
 
-
+```
 wolfdeveloper_ui_kit/
 ├── lib/
 │   ├── src/
@@ -40,5 +40,6 @@ wolfdeveloper_ui_kit/
 ├── README.md
 ├── CHANGELOG.md
 └── pubspec.yaml
+```
 
 ## Flutter 3.22.2
