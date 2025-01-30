@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 class WolfDesignSystemTheme {
-
   static BoxShadow get cardShadow => const BoxShadow(
       color: Color(0x26000000), // Sombra com opacidade
       offset: Offset(0, 2),
       blurRadius: 4,
-      spreadRadius: 0
-  );
+      spreadRadius: 0);
 
   static const EdgeInsets cardMargin = EdgeInsets.all(16);
 
@@ -35,10 +33,20 @@ class WolfDesignSystemTheme {
 
       // tipografia, espaçamento,
       textTheme: const TextTheme(
-        bodyMedium: TextStyle(
-          color: Colors.black
+        displayMedium: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
-
+        titleMedium: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 16,
+          color: Colors.black,
+        ),
       ),
 
       cardTheme: CardTheme(
@@ -47,7 +55,8 @@ class WolfDesignSystemTheme {
         color: Colors.white,
         shadowColor: cardShadow.color,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0), // Cantos arredondados, opcional
+          borderRadius:
+              BorderRadius.circular(8.0), // Cantos arredondados, opcional
         ),
       ),
     );
@@ -61,6 +70,23 @@ class WolfDesignSystemTheme {
         primary: const Color(0xFFACBBB4),
         secondary: const Color(0xFFD0BFB5),
         onPrimaryContainer: Colors.grey[900],
+      ),
+      // tipografia, espaçamento,
+      textTheme: const TextTheme(
+        displayMedium: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        titleMedium: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 16,
+          color: Colors.white,
+        ),
       ),
     );
   }

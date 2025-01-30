@@ -6,8 +6,8 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+utilize scroll behavior para utilizar os scroll's da web
+scrollBehavior: ScrollConfiguration.of(context).copyWith( dragDevices: { PointerDeviceKind.touch, PointerDeviceKind.mouse, }
 
 ## Usage
 

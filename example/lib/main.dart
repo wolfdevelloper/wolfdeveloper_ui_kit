@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
 
@@ -11,6 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(dragDevices: {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      }),
       title: 'Flutter Demo',
       theme: WolfDesignSystemTheme.lightTheme,
       darkTheme: WolfDesignSystemTheme.darkTheme,
@@ -32,10 +37,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String? _selectedComponent;
+
   final Map<String, Widget> _components = {
     'ListOfServices': const ListOfServices(
       stringList: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
     ),
+    'ScheduleCard': ScheduleCard(
+      firstName: 'joao',
+      lastName: 'pereira de souza vasconcelos',
+      age: 19,
+      scheduledTime: DateTime.now(),
+      address: 'rua oscar de barros  - jardim periperi, n35 - sp',
+      facilities: const ["cartão de crédito", "Deficiente visual"],
+      phoneNumber: "11963542474",
+      services: const ["corte + barba", "luzes"],
+    ),
+
     // ... adicione outros componentes aqui
   };
 
@@ -67,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
               Center(
                 child: _components[_selectedComponent!],
               ),
-
           ],
         ),
       ),
