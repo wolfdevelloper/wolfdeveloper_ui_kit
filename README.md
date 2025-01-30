@@ -7,12 +7,12 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 ## Getting started
 
 utilize scroll behavior para utilizar os scroll's da web
-scrollBehavior: ScrollConfiguration.of(context).copyWith( dragDevices: { PointerDeviceKind.touch, PointerDeviceKind.mouse, }
 
+```dart
+scrollBehavior ScrollConfiguration.of(context).copyWith( dragDevices: { PointerDeviceKind.touch, PointerDeviceKind.mouse, }
+```
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
 
 ```dart
 ListOfServices({required this.stringList}); 
