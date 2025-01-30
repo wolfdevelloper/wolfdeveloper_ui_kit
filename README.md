@@ -15,7 +15,7 @@ TODO: Include short and useful examples for package users. Add longer examples
 to `/example` folder.
 
 ```dart
-const like = 'sample';
+ListOfServices({required this.stringList}); 
 ```
 
 ## Additional information
@@ -25,15 +25,15 @@ wolfdeveloper_ui_kit/
 ├── lib/
 │   ├── src/
 │   │   ├── widgets/
-│   │   │   ├── button.dart
-│   │   │   ├── text_field.dart
+│   │   │   ├── list_of_services.dart
+│   │   │   ├── schedule_card.dart
 │   │   │   └── ...
 │   │   ├── themes/
-│   │   │   ├── colors.dart
-│   │   │   ├── typography.dart
+│   │   │   ├── wolf_of_desing_system_theme.dart
+│   │   │   ├── ...
 │   │   │   └── ...
-│   │   └── ...
-│   ├── design_system_package.dart
+│   │   └── wolf.exports.dart
+│   ├── wolfdeveloper_ui_kit.dart
 │   └── ...
 ├── test/
 │   └── ...
