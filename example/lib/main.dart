@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final Map<String, Widget> _components = {
     'ListOfServices': const ListOfServices(
-      stringList: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+      stringList: ['Corte Masculino', 'Item 2', 'Item 3', 'Item 4'],
     ),
     'ScheduleCard': ScheduleCard(
       firstName: 'joao',
@@ -52,8 +52,50 @@ class _MyHomePageState extends State<MyHomePage> {
       phoneNumber: "11963542474",
       services: const ["corte + barba", "luzes"],
     ),
-
-    // ... adicione outros componentes aqui
+    'TimeComponent': const TimeComponent(
+      times: ['08:00', '09:00', '10:00', '11:00', '12:00'],
+    ),
+    'ExpandableContent': const ExpandableContent(
+      leftText: 'Nome do Serviço',
+      rightText: "R\$100,00",
+      content: TimeComponent(
+        times: [
+          '08:00',
+          '09:00',
+          '10:00',
+        ],
+      ),
+    ),
+    'SearchResultCard': const SearchResultCard(
+      rating: 3.0,
+      providerAddress: "rua josé augusto sao limoes - br - cotia - sp",
+      providerName: 'Douglas Silveira',
+      reviewCount: 11,
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMzvdGFJ9_-JlZpYPEbc_2SQRnbNA2Ph_k1Q&s',
+      expandableContentList: [
+        ExpandableContent(
+          leftText: 'Nome do Serviço',
+          rightText: "R\$100,00",
+          content: TimeComponent(
+            times: [
+              '08:00',
+              '09:00',
+              '10:00',
+            ],
+          ),
+        ),
+        ExpandableContent(
+          leftText: 'Nome do Serviço',
+          rightText: "R\$100,00",
+          content: TimeComponent(
+            times: [
+              '08:00',
+              '09:00',
+            ],
+          ),
+        ),
+      ],
+    ),
   };
 
   @override

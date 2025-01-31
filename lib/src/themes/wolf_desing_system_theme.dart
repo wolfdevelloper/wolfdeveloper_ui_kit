@@ -47,6 +47,10 @@ class WolfDesignSystemTheme {
           fontSize: 16,
           color: Colors.black,
         ),
+        bodySmall: TextStyle(
+          fontSize: 10,
+          color: Colors.black,
+        ),
       ),
 
       cardTheme: CardTheme(
@@ -87,6 +91,14 @@ class WolfDesignSystemTheme {
           fontSize: 16,
           color: Colors.white,
         ),
+        bodySmall: TextStyle(
+          fontSize: 10,
+          color: Colors.white,
+        ),
+      ),
+      cardTheme: lightTheme.cardTheme.copyWith( // Copia o cardTheme do lightTheme
+          shadowColor: Colors.grey, // Define a sombra cinza para o dark mode
+          color: Colors.grey[800]
       ),
     );
   }
