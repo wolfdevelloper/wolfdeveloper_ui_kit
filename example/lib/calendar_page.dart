@@ -2,22 +2,41 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
 
+/*class CalendarPage extends StatelessWidget {
+  const CalendarPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: WolfDesignSystemTheme.lightTheme.copyWith(
+        extensions: [
+          CustomCalendarTheme.fromTheme(WolfDesignSystemTheme.lightTheme),
+        ],
+      ),
+      darkTheme: WolfDesignSystemTheme.darkTheme.copyWith(
+        extensions: [
+          CustomCalendarTheme.fromTheme(WolfDesignSystemTheme.darkTheme),
+        ],
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}*/
+
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Calendário Custom'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Custom Calendar'),
       ),
-      child: SafeArea(
-        child: CustomCalendar(
-          locale: const Locale('pt', 'BR'),
-          onDateSelected: (date) {
-            print('Data selecionada: $date');
-          },
-        ),
+      body:  CustomCalendar(
+        locale: Locale('pt', 'BR'),
+        onDateSelected: (date) {
+          print('Data selecionada: $date');
+        },
       ),
     );
   }

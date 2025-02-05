@@ -18,15 +18,22 @@ class MyApp extends StatelessWidget {
         PointerDeviceKind.mouse,
       }),
       title: 'Flutter Demo',
-      theme: WolfDesignSystemTheme.lightTheme,
-      darkTheme: WolfDesignSystemTheme.darkTheme,
+      theme: WolfDesignSystemTheme.lightTheme.copyWith(
+        extensions: [
+          CustomCalendarTheme.fromTheme(WolfDesignSystemTheme.lightTheme),
+        ],
+      ),
+      darkTheme: WolfDesignSystemTheme.darkTheme.copyWith(
+        extensions: [
+          CustomCalendarTheme.fromTheme(WolfDesignSystemTheme.darkTheme),
+        ],
+      ),
       // Opcional: tema escuro
       themeMode: ThemeMode.system,
       home: const MyHomePage(title: 'wolfdeveloper Ui Kit'),
       routes: {
         'home': (context) => const MyHomePage(title: 'wolf components',),
-        'calendar': (context) =>
-            const CalendarPage(),
+        'calendar': (context) => CalendarPage(),
       },
     );
   }
