@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
 
 class ScheduleCard extends StatelessWidget {
-  const ScheduleCard({
-    super.key,
-    required this.firstName,
-    required this.lastName,
-    required this.age,
-    required this.scheduledTime,
-    required this.services,
-    required this.phoneNumber,
-    required this.address,
-    required this.facilities,
-  });
+  ScheduleCard(
+      {super.key,
+      required this.firstName,
+      required this.lastName,
+      required this.age,
+      required this.scheduledTime,
+      required this.services,
+      required this.phoneNumber,
+      required this.address,
+      required this.facilities,
+      required this.onTap});
 
   final String firstName;
   final String lastName;
@@ -22,6 +22,7 @@ class ScheduleCard extends StatelessWidget {
   final String phoneNumber;
   final String address;
   final List<String> facilities;
+  dynamic onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +62,12 @@ class ScheduleCard extends StatelessWidget {
                   ),
                   Text(formattedScheduledTime),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.circle,
-                        color: buttonColor,
-                      ))
+                    onPressed: () => onTap(),
+                    icon: Icon(
+                      Icons.circle,
+                      color: buttonColor,
+                    ),
+                  )
                 ],
               ),
               const SizedBox(height: 8),
@@ -130,7 +132,7 @@ class ScheduleCard extends StatelessWidget {
                   child: Row(
                     children: facilities
                         .map((facility) => SizedBox(
-                          child: Padding(
+                              child: Padding(
                                 padding: const EdgeInsets.only(right: 8.0),
                                 child: Chip(
                                   backgroundColor:
@@ -141,12 +143,13 @@ class ScheduleCard extends StatelessWidget {
                                           .secondary),
                                   label: Text(
                                     facility,
-                                    style:
-                                        Theme.of(context).textTheme.displayMedium,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayMedium,
                                   ),
                                 ),
                               ),
-                        ))
+                            ))
                         .toList(),
                   ),
                 ),

@@ -11,14 +11,16 @@ class ListOfServices extends StatelessWidget {
       width: 310,
       height: 240,
       child: Card(
-        // ... (rest of the card configuration)
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: ListView.separated(
-            itemCount: stringList.length,
-            itemBuilder: (context, index) => Text(stringList[index]),
-            separatorBuilder: (context, index) => const SizedBox(height: 30),
-          ),
+          child: stringList.isNotEmpty
+              ? ListView.separated(
+                  key: const Key('listOfService'),
+                  itemCount: stringList.length,
+                  itemBuilder: (context, index) => Text(stringList[index]),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 30))
+              : Container(),
         ),
       ),
     );

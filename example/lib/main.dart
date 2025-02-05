@@ -1,3 +1,4 @@
+import 'package:example/calendar_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
@@ -22,6 +23,11 @@ class MyApp extends StatelessWidget {
       // Opcional: tema escuro
       themeMode: ThemeMode.system,
       home: const MyHomePage(title: 'wolfdeveloper Ui Kit'),
+      routes: {
+        'home': (context) => const MyHomePage(title: 'wolf components',),
+        'calendar': (context) =>
+            const CalendarPage(),
+      },
     );
   }
 }
@@ -51,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       facilities: const ["cartão de crédito", "Deficiente visual"],
       phoneNumber: "11963542474",
       services: const ["corte + barba", "luzes"],
+      onTap: () {},
     ),
     'TimeComponent': const TimeComponent(
       times: ['08:00', '09:00', '10:00', '11:00', '12:00'],
@@ -71,7 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
       providerAddress: "rua josé augusto sao limoes - br - cotia - sp",
       providerName: 'Douglas Silveira',
       reviewCount: 11,
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMzvdGFJ9_-JlZpYPEbc_2SQRnbNA2Ph_k1Q&s',
+      imageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMzvdGFJ9_-JlZpYPEbc_2SQRnbNA2Ph_k1Q&s',
       expandableContentList: [
         ExpandableContent(
           leftText: 'Nome do Serviço',
@@ -126,6 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Center(
                 child: _components[_selectedComponent!],
               ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pushNamed('calendar'),
+              child: Text('Navegar'),
+            )
           ],
         ),
       ),

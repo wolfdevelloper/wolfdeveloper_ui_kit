@@ -81,7 +81,7 @@ class SearchResultCard extends StatelessWidget {
                         Row(
                           children: [
                             const Icon(Icons.location_on, size: 16),
-                            const SizedBox(width: 4),
+                            const SizedBox(width: 8),
                             Flexible(
                               child: Text(
                                 providerAddress,
@@ -94,9 +94,11 @@ class SearchResultCard extends StatelessWidget {
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            Text(
-                              'Avaliações ($reviewCount)',
-                              style: Theme.of(context).textTheme.bodySmall,
+                            Flexible(
+                              child: Text(
+                                'Avaliações ($reviewCount)',
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
                             ),
                             const SizedBox(width: 8),
                             IconTheme(
