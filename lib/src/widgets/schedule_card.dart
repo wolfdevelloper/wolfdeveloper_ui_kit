@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
 
 class ScheduleCard extends StatelessWidget {
-  ScheduleCard(
+  final String firstName;
+  final String lastName;
+  final int age;
+  final DateTime scheduledTime;
+  final List<String> services;
+  final String phoneNumber;
+  final String address;
+  final List<String> facilities;
+  final void Function()? onTap;
+
+  const ScheduleCard(
       {super.key,
       required this.firstName,
       required this.lastName,
@@ -14,15 +23,7 @@ class ScheduleCard extends StatelessWidget {
       required this.facilities,
       required this.onTap});
 
-  final String firstName;
-  final String lastName;
-  final int age;
-  final DateTime scheduledTime;
-  final List<String> services;
-  final String phoneNumber;
-  final String address;
-  final List<String> facilities;
-  dynamic onTap;
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class ScheduleCard extends StatelessWidget {
                   ),
                   Text(formattedScheduledTime),
                   IconButton(
-                    onPressed: () => onTap(),
+                    onPressed: () => onTap!(),
                     icon: Icon(
                       Icons.circle,
                       color: buttonColor,

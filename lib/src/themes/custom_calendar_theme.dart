@@ -74,7 +74,7 @@ class CustomCalendarTheme extends ThemeExtension<CustomCalendarTheme> {
   // Método para gerar o tema com base no WolfDesignSystemTheme
   static CustomCalendarTheme fromTheme(ThemeData theme) {
     return CustomCalendarTheme(
-      backgroundColor: theme.colorScheme.onPrimaryContainer ?? Colors.white,
+      backgroundColor: theme.colorScheme.onPrimaryContainer,
       selectedDateColor: theme.colorScheme.primary,
       eventIndicatorColor: theme.colorScheme.secondary,
       headerTextStyle: theme.textTheme.titleMedium!.copyWith(

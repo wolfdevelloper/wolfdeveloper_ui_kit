@@ -54,6 +54,32 @@ class _CustomCalendarState extends State<CustomCalendar>
     });
   }
 
+  void _onNextMonth() {
+    setState(() {
+      _currentDate = DateTime(
+          _currentDate.year, _currentDate.month + 1, 1); // Adiciona 1 ao mês
+      _selectedDate =
+          _currentDate;
+      _pageController.animateToPage(
+        _pageController.page!.toInt() + 1, // Avança uma página no PageView
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      );
+    });
+  }
+
+  void _onPreviousMonth() {
+    setState(() {
+      _currentDate = DateTime(_currentDate.year, _currentDate.month - 1, 1);
+      _selectedDate = _currentDate;
+      _pageController.animateToPage(
+        _pageController.page!.toInt() - 1,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      );
+    });
+  }
+
   void _onDateSelected(DateTime date) {
     setState(() {
       _selectedDate = date;
@@ -95,16 +121,21 @@ class _CustomCalendarState extends State<CustomCalendar>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CupertinoButton(
+            onPressed: _onTodayPressed,
             child: Text(
               'Hoje',
               style: theme.todayButtonTextStyle,
             ),
-            onPressed: _onTodayPressed,
           ),
+          ElevatedButton(
+              onPressed: _onPreviousMonth, child: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
           Text(
             '${_currentDate.month}/${_currentDate.year}',
             style: theme.headerTextStyle,
           ),
+          ElevatedButton(
+              onPressed: _onNextMonth,
+              child: const Icon(Icons.arrow_forward_ios,color: Colors.white,)),
           const SizedBox(width: 48.0), // Espaço para alinhamento
         ],
       ),
@@ -124,7 +155,7 @@ class _CustomCalendarState extends State<CustomCalendar>
       itemCount: daysInMonth + startingWeekday - 1,
       itemBuilder: (context, index) {
         if (index < startingWeekday - 1) {
-          return Container(); // Dias do mês anterior
+          return Container();
         }
         final day = index - startingWeekday + 2;
         final date = DateTime(month.year, month.month, day);
@@ -151,7 +182,7 @@ class _CustomCalendarState extends State<CustomCalendar>
                           ? theme.selectedDateTextStyle
                           : theme.dateTextStyle,
                 ),
-                if (date.weekday == DateTime.sunday) // Exemplo de evento
+                if (date.weekday == DateTime.sunday)
                   Container(
                     margin: const EdgeInsets.only(top: 4.0),
                     width: 4.0,
@@ -169,5 +200,3 @@ class _CustomCalendarState extends State<CustomCalendar>
     );
   }
 }
-
-

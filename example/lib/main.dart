@@ -117,35 +117,37 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Wolfdeveloper Ui Kit')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            DropdownButton<String>(
-              value: _selectedComponent,
-              hint: const Text('Selecione um componente'),
-              items: _components.keys.map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  _selectedComponent = newValue;
-                });
-              },
-            ),
-            const SizedBox(height: 16),
-            if (_selectedComponent != null)
-              Center(
-                child: _components[_selectedComponent!],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              DropdownButton<String>(
+                value: _selectedComponent,
+                hint: const Text('Selecione um componente'),
+                items: _components.keys.map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedComponent = newValue;
+                  });
+                },
               ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pushNamed('calendar'),
-              child: Text('Navegar'),
-            )
-          ],
+              const SizedBox(height: 16),
+              if (_selectedComponent != null)
+                Center(
+                  child: _components[_selectedComponent!],
+                ),
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pushNamed('calendar'),
+                child: Text('Navegar',style: Theme.of(context).textTheme.headlineMedium,),
+              )
+            ],
+          ),
         ),
       ),
     );

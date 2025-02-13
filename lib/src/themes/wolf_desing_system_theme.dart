@@ -23,6 +23,8 @@ class WolfDesignSystemTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFFACBBB4),
+          iconColor: Colors.white,
+          textStyle: const TextStyle(color: Colors.white)
         ),
       ),
 
@@ -51,6 +53,10 @@ class WolfDesignSystemTheme {
           fontSize: 10,
           color: Colors.black,
         ),
+       headlineMedium: TextStyle(
+        fontSize: 16,
+        color: Colors.white,
+      ),
       ),
 
       cardTheme: CardTheme(
