@@ -2,21 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wolfdeveloper_ui_kit/src/themes/custom_calendar_theme.dart';
 
-class CustomCalendar extends StatefulWidget {
+class CustomCalendarMonth extends StatefulWidget {
   final Locale locale;
   final Function(DateTime)? onDateSelected;
 
-  const CustomCalendar({
-    Key? key,
+  const CustomCalendarMonth({
+    super.key,
     required this.locale,
     this.onDateSelected,
-  }) : super(key: key);
+  });
 
   @override
   _CustomCalendarState createState() => _CustomCalendarState();
 }
 
-class _CustomCalendarState extends State<CustomCalendar>
+class _CustomCalendarState extends State<CustomCalendarMonth>
     with SingleTickerProviderStateMixin {
   late DateTime _currentDate;
   late DateTime _selectedDate;
@@ -58,8 +58,7 @@ class _CustomCalendarState extends State<CustomCalendar>
     setState(() {
       _currentDate = DateTime(
           _currentDate.year, _currentDate.month + 1, 1); // Adiciona 1 ao mês
-      _selectedDate =
-          _currentDate;
+      _selectedDate = _currentDate;
       _pageController.animateToPage(
         _pageController.page!.toInt() + 1, // Avança uma página no PageView
         duration: const Duration(milliseconds: 500),
@@ -90,25 +89,29 @@ class _CustomCalendarState extends State<CustomCalendar>
   @override
   Widget build(BuildContext context) {
     final theme = CustomCalendarTheme.of(context);
-    return CupertinoPageScaffold(
-      backgroundColor: theme.backgroundColor,
-      child: Column(
-        children: [
-          _buildHeader(),
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentDate = DateTime(_currentDate.year, index + 1);
-                });
-              },
-              itemBuilder: (context, index) {
-                return _buildMonthView(DateTime(_currentDate.year, index + 1));
-              },
+    return Hero(
+      tag: 'animacao-calendario',
+      child: CupertinoPageScaffold(
+        backgroundColor: theme.backgroundColor,
+        child: Column(
+          children: [
+            _buildHeader(),
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentDate = DateTime(_currentDate.year, index + 1);
+                  });
+                },
+                itemBuilder: (context, index) {
+                  return _buildMonthView(
+                      DateTime(_currentDate.year, index + 1));
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -128,14 +131,21 @@ class _CustomCalendarState extends State<CustomCalendar>
             ),
           ),
           ElevatedButton(
-              onPressed: _onPreviousMonth, child: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
+              onPressed: _onPreviousMonth,
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              )),
           Text(
             '${_currentDate.month}/${_currentDate.year}',
             style: theme.headerTextStyle,
           ),
           ElevatedButton(
               onPressed: _onNextMonth,
-              child: const Icon(Icons.arrow_forward_ios,color: Colors.white,)),
+              child: const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              )),
           const SizedBox(width: 48.0), // Espaço para alinhamento
         ],
       ),

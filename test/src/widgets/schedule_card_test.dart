@@ -113,8 +113,8 @@ void main() {
       home: Scaffold(
         body: ScheduleCard(
           firstName: 'primeiro nome ',
-          services: ['servico'],
-          facilities: ['facilidade'],
+          services: const ['servico'],
+          facilities: const ['facilidade'],
           address: 'endereco',
           phoneNumber: '11111111111',
           scheduledTime: DateTime.now(),

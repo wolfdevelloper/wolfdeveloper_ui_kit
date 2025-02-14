@@ -22,8 +22,10 @@ import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
   }
 }*/
 
-class CalendarPage extends StatelessWidget {
-  const CalendarPage({super.key});
+class CalendarYearPage extends StatelessWidget {
+   CalendarYearPage({super.key});
+
+ final DateTime data = DateTime(2025, 2);
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,23 @@ class CalendarPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Custom Calendar'),
       ),
-      body:  CustomCalendarMonth(
-        locale: const Locale('pt', 'BR'),
-        onDateSelected: (date) {
-          print('Data selecionada: $date');
+      body: CustomCalendarYear(
+        initialYear: 2025,
+        onClickMonth: (data) {
+          Navigator.of(context).push(
+              PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return ScaleTransition(
+                scale: animation,
+                child: FadeTransition(
+                  opacity: animation,
+                  child: const CustomCalendarMonth(
+                    locale: Locale('pt', 'BR'), // Tag única para o Hero
+                  ),
+                ),
+              );
+            },
+          ));
         },
       ),
     );

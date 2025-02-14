@@ -37,7 +37,7 @@ void main() {
       const content = Text('Content');
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: ExpandableContent(
               leftText: leftText,

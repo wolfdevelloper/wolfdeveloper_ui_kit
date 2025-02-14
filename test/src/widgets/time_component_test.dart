@@ -47,7 +47,7 @@ void main() {
 
       // Construa o widget
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: TimeComponent(times: times),
           ),

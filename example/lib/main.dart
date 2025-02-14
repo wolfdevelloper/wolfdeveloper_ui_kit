@@ -1,4 +1,5 @@
 import 'package:example/calendar_page.dart';
+import 'package:example/calendar_year_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:wolfdeveloper_ui_kit/wolfdeveloper_ui_kit.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'wolfdeveloper Ui Kit'),
       routes: {
         'home': (context) => const MyHomePage(title: 'wolf components',),
-        'calendar': (context) => CalendarPage(),
+        'calendar': (context) => const CalendarPage(),
+        'calendar-year': (context) =>  CalendarYearPage(),
       },
     );
   }
@@ -121,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+
             children: [
               DropdownButton<String>(
                 value: _selectedComponent,
@@ -144,7 +147,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pushNamed('calendar'),
-                child: Text('Navegar',style: Theme.of(context).textTheme.headlineMedium,),
+                child: Text('Calendario Mes',style: Theme.of(context).textTheme.headlineMedium,),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pushNamed('calendar-year'),
+                child: Text('Calendario Ano',style: Theme.of(context).textTheme.headlineMedium,),
               )
             ],
           ),
