@@ -59,7 +59,7 @@ class WolfDesignSystemTheme {
       ),
       ),
 
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 4,
         margin: cardMargin,
         color: Colors.white,
