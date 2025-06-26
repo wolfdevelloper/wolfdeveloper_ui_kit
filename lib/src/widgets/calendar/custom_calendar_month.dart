@@ -13,10 +13,10 @@ class CustomCalendarMonth extends StatefulWidget {
   });
 
   @override
-  _CustomCalendarState createState() => _CustomCalendarState();
+  CustomCalendarState createState() => CustomCalendarState();
 }
 
-class _CustomCalendarState extends State<CustomCalendarMonth>
+class CustomCalendarState extends State<CustomCalendarMonth>
     with SingleTickerProviderStateMixin {
   late DateTime _currentDate;
   late DateTime _selectedDate;

@@ -41,7 +41,7 @@ class WolfDateInputFormatter extends TextInputFormatter {
 
     if (digits.length >= 2) {
       day = digits.substring(0, 2);
-    } else if (digits.length >= 1) {
+    } else if (digits.isNotEmpty) {
       day = digits.substring(0, 1);
     }
 

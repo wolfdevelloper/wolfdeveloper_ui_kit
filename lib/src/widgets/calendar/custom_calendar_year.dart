@@ -15,10 +15,10 @@ class CustomCalendarYear extends StatefulWidget {
   });
 
   @override
-  _CustomCalendarYearState createState() => _CustomCalendarYearState();
+  CustomCalendarYearState createState() => CustomCalendarYearState();
 }
 
-class _CustomCalendarYearState extends State<CustomCalendarYear> {
+class CustomCalendarYearState extends State<CustomCalendarYear> {
   late int currentYear;
   late final PageController _pageController;
 
@@ -120,22 +120,27 @@ class _CustomCalendarYearState extends State<CustomCalendarYear> {
             child: Container(
               decoration: BoxDecoration(
                 color: isCurrentMonth
-                    ? Theme.of(context).primaryColor.withOpacity(0.2)
+                    ? Color.lerp(
+                        Colors.transparent,
+                        Theme.of(context).primaryColor,
+                        0.2,
+                      )!
                     : null,
                 borderRadius: BorderRadius.circular(8),
               ),
               padding: const EdgeInsets.all(8),
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text(nameOfMonth(monthDate.month),
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: isCurrentMonth
-                            ? Theme.of(context).primaryColor
-                            : null)),
-                MonthMiniView(monthDate: monthDate),
-                // Mini visualização do mês
-              ]),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(nameOfMonth(monthDate.month),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: isCurrentMonth
+                                ? Theme.of(context).primaryColor
+                                : null)),
+                    MonthMiniView(monthDate: monthDate),
+                    // Mini visualização do mês
+                  ]),
             ),
           ),
         );

@@ -34,7 +34,7 @@ class CalendarPage extends StatelessWidget {
       body:  CustomCalendarMonth(
         locale: const Locale('pt', 'BR'),
         onDateSelected: (date) {
-          print('Data selecionada: $date');
+
         },
       ),
     );
