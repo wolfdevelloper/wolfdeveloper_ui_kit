@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TimeComponent extends StatelessWidget {
-  const TimeComponent({super.key, required this.times});
 
+  const TimeComponent({super.key, required this.times, required this.onDateSelected});
+  final void Function(DateTime data) onDateSelected; //TODO (victor): create method
   final List<String> times;
 
   @override

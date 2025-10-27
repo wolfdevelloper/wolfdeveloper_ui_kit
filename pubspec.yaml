@@ -1,11 +1,11 @@
 name: wolfdeveloper_ui_kit
-description: "desing system dos aplicativos da wolfdeveloper"
+description: "design system dos applicatives da wolfdeveloper"
 version: 0.0.1
-homepage:
+homepage: https://www.wolfdeveloper.com.br
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=3.7.2 <4.0.0'
+  flutter: ">=3.29.3"
 
 dependencies:
   flutter:

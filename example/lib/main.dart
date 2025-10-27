@@ -68,21 +68,21 @@ class _MyHomePageState extends State<MyHomePage> {
       services: const ["corte + barba", "luzes"],
       onTap: () {},
     ),
-    'TimeComponent': const TimeComponent(
-      times: ['08:00', '09:00', '10:00', '11:00', '12:00'],
+    'TimeComponent':  TimeComponent(
+      times: const ['08:00', '09:00', '10:00', '11:00', '12:00'], onDateSelected: (DateTime data) {  },
     ),
-    'ExpandableContent': const ExpandableContent(
+    'ExpandableContent':  ExpandableContent(
       leftText: 'Nome do Serviço',
       rightText: "R\$100,00",
       content: TimeComponent(
-        times: [
+        times: const [
           '08:00',
           '09:00',
           '10:00',
-        ],
+        ], onDateSelected: (DateTime data) {  },
       ),
     ),
-    'SearchResultCard': const SearchResultCard(
+    'SearchResultCard': SearchResultCard(
       rating: 3.0,
       providerAddress: "rua josé augusto sao limoes - br - cotia - sp",
       providerName: 'Douglas Silveira',
@@ -94,21 +94,21 @@ class _MyHomePageState extends State<MyHomePage> {
           leftText: 'Nome do Serviço',
           rightText: "R\$100,00",
           content: TimeComponent(
-            times: [
+            times: const [
               '08:00',
               '09:00',
               '10:00',
-            ],
+            ], onDateSelected: (DateTime data) {  },
           ),
         ),
         ExpandableContent(
           leftText: 'Nome do Serviço',
           rightText: "R\$100,00",
           content: TimeComponent(
-            times: [
+            times: const [
               '08:00',
               '09:00',
-            ],
+            ], onDateSelected: (DateTime data) {  },
           ),
         ),
       ],

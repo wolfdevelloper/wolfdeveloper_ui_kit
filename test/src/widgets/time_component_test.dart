@@ -13,8 +13,8 @@ void main() {
           theme: WolfDesignSystemTheme.lightTheme, // Tema claro
           darkTheme: WolfDesignSystemTheme.darkTheme, // Tema escuro
           themeMode: ThemeMode.system, // Modo de tema (opcional)
-          home:  const Scaffold(
-            body: TimeComponent(times: times),
+          home:   Scaffold(
+            body: TimeComponent(times: times, onDateSelected: (DateTime data) {  },),
           ),
         ),
       );
@@ -47,9 +47,9 @@ void main() {
 
       // Construa o widget
       await tester.pumpWidget(
-        const MaterialApp(
+         MaterialApp(
           home: Scaffold(
-            body: TimeComponent(times: times),
+            body: TimeComponent(times: times, onDateSelected: (DateTime data) {  },),
           ),
         ),
       );
@@ -67,8 +67,8 @@ void main() {
 
       await tester.pumpWidget(MaterialApp(
         theme: ThemeData(colorScheme: const ColorScheme.light(secondary: customColor)),
-        home: const Scaffold(
-            body: TimeComponent(times: times)
+        home:  Scaffold(
+            body: TimeComponent(times: times, onDateSelected: (DateTime data) {  },)
         ),
       ));
 
